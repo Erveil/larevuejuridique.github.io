@@ -19,6 +19,7 @@
 
     * {
       transition: all 0.3s ease;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -36,6 +37,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      animation: fadeSlide 1s ease-out;
     }
 
     header img {
@@ -57,7 +59,6 @@
       text-decoration: none;
       margin-left: 2rem;
       font-weight: 600;
-      transition: color 0.3s;
       position: relative;
     }
 
@@ -85,6 +86,7 @@
       text-align: center;
       background: var(--background-overlay);
       color: white;
+      animation: fadeIn 1.2s ease;
     }
 
     .hero h1 {
@@ -99,6 +101,7 @@
       background-color: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeUp 1s ease;
     }
 
     h2 {
@@ -122,6 +125,7 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      animation: fadeIn 0.8s ease;
     }
 
     .card:hover {
@@ -131,7 +135,7 @@
 
     .card img {
       width: 100%;
-      height: 140px;
+      height: 100px;
       object-fit: cover;
       border-radius: 6px;
       margin-bottom: 1rem;
@@ -184,6 +188,22 @@
       color: white;
       text-align: center;
       padding: 2rem 1rem;
+      animation: fadeSlide 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -204,6 +224,7 @@
     <h1>La Revue Juridique</h1>
     <p>Le podcast de droit... mais pas que !</p>
   </section>
+
   <section id="podcast">
     <h2>🎙️ Écouter le podcast</h2>
     <p>Disponible sur <a href="https://open.spotify.com/show/7oabkTLSTqq6lBAa37bBS6" target="_blank">Spotify</a></p> <a href="https://www.deezer.com/fr/show/1001187931" target="_blank">Deezer</a></p>  <a href="https://podcasts.apple.com/fr/podcast/la-revue-juridique/id1769827870" target="_blank">Apple podcast</a></p> blank">Et plein d'autres</a></p>
