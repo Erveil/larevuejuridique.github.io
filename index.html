@@ -10,6 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+
+    .fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
     body {
       font-family: 'Times New Roman', Times, serif;
       margin: 0;
@@ -203,6 +209,40 @@
   <footer>
     <p>&copy; 2025 La Revue Juridique. Tous droits réservés.</p>
   </footer>
+<script>
+  // Fonction fade out au clic
+  function handleFadeOut(event) {
+    event.preventDefault(); // empêche la redirection immédiate
+    const link = event.currentTarget;
+    document.body.classList.add("fade-out");
+
+    // attendre l'animation, puis naviguer
+    setTimeout(() => {
+      if (link.tagName.toLowerCase() === 'a') {
+        window.location.href = link.href;
+      } else if (link.tagName.toLowerCase() === 'button') {
+        const form = link.closest('form');
+        if (form) form.submit();
+      }
+    }, 500); // temps en ms (doit correspondre au CSS)
+  }
+
+  // Cibler tous les <a> avec href et les <button>
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll("a[href]");
+    const buttons = document.querySelectorAll("button");
+
+    links.forEach(link => {
+      if (link.target !== "_blank") {
+        link.addEventListener("click", handleFadeOut);
+      }
+    });
+
+    buttons.forEach(button => {
+      button.addEventListener("click", handleFadeOut);
+    });
+  });
+</script>
 </body>
 
 </html>
