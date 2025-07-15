@@ -4,97 +4,141 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Revue Juridique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      color: #212529;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1e2a38;
       color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      min-height: 100vh;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    nav {
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      background: url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
+      flex-wrap: wrap;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      padding: 2em;
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
-    }
-
-    h2 {
-      font-weight: normal;
-      color: #ccc;
-      margin-top: 0;
-    }
-
-    p {
-      max-width: 700px;
-      margin: 1em auto;
-      font-size: 1.1em;
-    }
-
-    .buttons {
-      margin-top: 2em;
-    }
-
-    .buttons a {
+    nav a {
+      padding: 1rem 1.5rem;
       text-decoration: none;
-      padding: 0.8em 1.5em;
-      background: #ffffff22;
+      color: #1e2a38;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #f0f0f0;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #1e2a38;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #1e2a38;
       color: white;
-      border: 1px solid white;
-      border-radius: 5px;
-      margin: 0 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
       transition: background 0.3s;
     }
 
-    .buttons a:hover {
-      background: #ffffff44;
+    .btn:hover {
+      background: #34495e;
     }
 
     footer {
-      margin-top: 4em;
-      color: #bbb;
-      font-size: 0.9em;
+      background: #1e2a38;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-  <main>
+
+  <header>
     <h1>La Revue Juridique</h1>
-    <h2>Le podcast pour réviser et comprendre le droit autrement</h2>
-    <p>
-      Bienvenue sur le site officiel de <strong>La Revue Juridique</strong> !  
-      Tu y trouveras les épisodes du podcast, des fiches de révision, des conseils utiles et des ressources audio pour réussir tes études de droit.
-    </p>
-    <div class="buttons">
-      <a href="#">📚 Fiches de révision</a>
-      <a href="#">🎧 Écouter le podcast</a>
-      <a href="#">📝 Conseils & astuces</a>
-    </div>
-    <footer>
-      © 2025 La Revue Juridique
-    </footer>
-  </main>
+    <p>Le podcast qui rend le droit plus clair, plus vivant, plus humain</p>
+  </header>
+
+  <nav>
+    <a href="#podcast">Podcast</a>
+    <a href="#fiches">Fiches</a>
+    <a href="#conseils">Conseils</a>
+    <a href="#sons">Ressources audio</a>
+  </nav>
+
+  <section id="podcast">
+    <h2>🎙️ Le Podcast</h2>
+    <p>Découvre les épisodes de "La Revue Juridique", le podcast pour réviser le droit autrement.</p>
+    <a class="btn" href="#">Écouter maintenant</a>
+  </section>
+
+  <section id="fiches">
+    <h2>📚 Fiches de Révision</h2>
+    <p>Des fiches synthétiques pour chaque matière : droit admin, constit, civil, européen, etc.</p>
+    <a class="btn" href="#">Accéder aux fiches</a>
+  </section>
+
+  <section id="conseils">
+    <h2>💡 Conseils & Méthodo</h2>
+    <p>Des astuces concrètes pour bien réviser, organiser tes semestres, réussir tes TD et examens.</p>
+    <a class="btn" href="#">Voir les conseils</a>
+  </section>
+
+  <section id="sons">
+    <h2>🔊 Ressources audio</h2>
+    <p>Des sons, ambiances et musiques de concentration pour réviser dans de bonnes conditions.</p>
+    <a class="btn" href="#">Écouter les sons</a>
+  </section>
+
+  <footer>
+    © 2025 La Revue Juridique — Site pensé pour les étudiants en droit.
+  </footer>
+
 </body>
 </html>
