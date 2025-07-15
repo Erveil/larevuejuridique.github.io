@@ -16,48 +16,55 @@
       transition: opacity 0.5s ease;
       pointer-events: none;
     }
-
+    
+    #podcast .grid a.card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
     .card {
-      display: block;
-      background: #f5f5f5;
-      color: #0f1a3b;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 0.8rem;
-      font-size: 0.8rem;
-      max-height: 260px;
-      overflow: hidden;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-    }
+  display: block;
+  background: #f5f5f5;
+  color: #0f1a3b;
+  border-radius: 8px;
+   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 0.8rem;
+  font-size: 0.8rem;
+  max-height: 260px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
 
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
 
-    .card img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-    }
+.card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
 
-    .card h3,
-    .card p {
-      color: inherit;
-      margin: 0.3rem 0;
-    }
-
-    body {
+.card h3, .card p {
+  color: inherit;
+  margin: 0.3rem 0;
+}
+        body {
       font-family: 'Times New Roman', Times, serif;
       margin: 0;
       background: url('tribunal.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #0f1a3b;
     }
-
     header {
       background-color: rgba(15, 26, 59, 0.9);
       color: white;
@@ -66,34 +73,28 @@
       justify-content: space-between;
       align-items: center;
     }
-
     header img {
       height: 80px;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       margin-left: 2rem;
       font-weight: 600;
     }
-
     .hero {
       color: white;
       padding: 100px 2rem;
       text-align: center;
       background: rgba(15, 26, 59, 0.9);
     }
-
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-
     .hero p {
       font-size: 1.2rem;
     }
-
     section {
       padding: 4rem 2rem;
       max-width: 1000px;
@@ -103,29 +104,31 @@
       border-radius: 10px;
       margin-top: 2rem;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
-
+    .card {
+      background: #f5f5f5;
+      color: #0f1a3b;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+    }
     .card a {
       color: #1a73e8;
       text-decoration: none;
     }
-
     .card img {
       width: 100%;
       border-radius: 6px;
       margin-bottom: 1rem;
     }
-
     .contact-form {
       display: flex;
       flex-direction: column;
     }
-
     .contact-form input,
     .contact-form textarea {
       padding: 1rem;
@@ -134,7 +137,6 @@
       border-radius: 5px;
       font-size: 1rem;
     }
-
     .contact-form button {
       padding: 1rem;
       background: #0f1a2b;
@@ -144,14 +146,12 @@
       font-weight: bold;
       border-radius: 5px;
     }
-
     footer {
       background-color: #0f1a2b;
       color: white;
       text-align: center;
       padding: 2rem 1rem;
     }
-
     #podcast {
       background-color: rgba(159, 175, 191, 0.95);
       border-radius: 20px;
@@ -162,7 +162,6 @@
       text-align: center;
       font-family: 'Times New Roman', serif;
     }
-
     #podcast h2 {
       font-size: 3em;
       color: #0d1b2a;
@@ -172,13 +171,11 @@
       justify-content: center;
       gap: 15px;
     }
-
     #podcast p {
       font-size: 1.3em;
-      color: #0d1b2a;
+      color: #0d1b2a
       margin-bottom: 20px;
     }
-
     #podcast a {
       font-size: 1.2em;
       color: #3a0ca3;
@@ -186,10 +183,10 @@
       font-weight: bold;
       transition: color 0.3s;
     }
-
     #podcast a:hover {
       color: #0a0e54;
     }
+
   </style>
 </head>
 
@@ -237,52 +234,34 @@
   <a class="card" href="https://open.spotify.com/episode/65JCvBfxmoQ7vzXm3RGrE8" target="_blank">
     <img src="logo.png" alt="Podcast 1">
     <h3>L'arrêt Cadot</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/5EiDuSDdzlWnNFmz8EPy25" target="_blank">
     <img src="logo.png" alt="Podcast 2">
     <h3>La chute de l'ancien régime</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/0eZnv6I9lst1pzUqDCYQUs" target="_blank">
     <img src="logo.png" alt="Podcast 3">
     <h3>Le déclin de l'ancien régime</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/5DXkT7DEkkZWclnbv3v7T4" target="_blank">
     <img src="logo.png" alt="Podcast 4">
     <h3>La QPC (Question Prioritaire de Constitutionnalité)</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/5LFxND2XQmrH2AR0yjKXDk" target="_blank">
     <img src="logo.png" alt="Podcast 5">
     <h3>L'article 11 de la Constitution</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/7jqHpcqp1pQifl2K0zKDhB" target="_blank">
     <img src="logo.png" alt="Podcast 6">
     <h3>La sauvegarde de justice</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/0kU3M9trbh5xqSLRslNKKF" target="_blank">
     <img src="logo.png" alt="Podcast 7">
     <h3>La démocratie</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/6aRz7Re9HMiS1I5sdHI9Iq" target="_blank">
     <img src="logo.png" alt="Podcast 8">
     <h3>La république</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/3LY656aoMazdVBKwjpNWDe" target="_blank">
     <img src="logo.png" alt="Podcast 9">
     <h3>L'État</h3>
-    <p>Écouter sur Spotify</p>
-  </a>
   <a class="card" href="https://open.spotify.com/episode/3MYG3RIhhwjR32V7MvBpiX" target="_blank">
     <img src="logo.png" alt="Podcast 10">
     <h3>L'article 89 de la Constitution</h3>
-    <p>Écouter sur Spotify</p>
+
   </a>
 </div>
 </div>
