@@ -1,195 +1,191 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Revue Juridique</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f9fa;
-      color: #212529;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #1a1a1a;
     }
     header {
-      background: url('https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      background-color: #0f1a2b;
       color: white;
-      padding: 4rem 1rem;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.3rem;
-    }
-    nav {
+      padding: 1.5rem 2rem;
       display: flex;
-      justify-content: center;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 60px;
     }
     nav a {
-      padding: 1rem 1.5rem;
+      color: white;
       text-decoration: none;
-      color: #1e2a38;
+      margin-left: 2rem;
       font-weight: 600;
-      transition: 0.3s;
     }
-    nav a:hover {
-      background-color: #f0f0f0;
+    .hero {
+      background: url('hero-image.jpg') center/cover no-repeat;
+      color: white;
+      padding: 100px 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
     }
     section {
-      padding: 4rem 1rem;
-      max-width: 1100px;
+      padding: 4rem 2rem;
+      max-width: 1000px;
       margin: auto;
     }
     section h2 {
-      font-size: 2.5rem;
-      color: #1e2a38;
+      font-size: 2rem;
       margin-bottom: 1rem;
-      text-align: center;
+      color: #0f1a2b;
     }
-    section p {
-      font-size: 1.1rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #1e2a38;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #34495e;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
     .card {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      margin: 2rem auto;
-      max-width: 700px;
-      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
     }
-    .card img {
-      width: 100%;
-      height: auto;
+    .card h3 {
+      margin-top: 0;
     }
-    .card-content {
-      padding: 2rem;
+    .card a {
+      color: #1a73e8;
+      text-decoration: none;
     }
-    form {
+    .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
     }
-    input, textarea {
-      padding: 0.8rem;
-      font-family: inherit;
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1rem;
+      margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
     }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #1e2a38;
+    .contact-form button {
+      padding: 1rem;
+      background: #0f1a2b;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
     }
     footer {
-      background: #1e2a38;
+      background-color: #0f1a2b;
       color: white;
       text-align: center;
       padding: 2rem 1rem;
-      margin-top: 3rem;
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>La Revue Juridique</h1>
-    <p>Le site étudiant pour apprendre, réviser et réussir en droit</p>
+    <img src="logo.png" alt="Logo La Revue Juridique" />
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#podcast">Podcast</a>
+      <a href="#fiches">Fiches</a>
+      <a href="#tips">Tips</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#podcast">Podcast</a>
-    <a href="#fiches">Fiches</a>
-    <a href="#conseils">Conseils</a>
-    <a href="#sons">Audio</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <section class="hero" id="accueil">
+    <h1>La Revue Juridique</h1>
+    <p>Le podcast de droit... mais pas que !</p>
+  </section>
 
   <section id="podcast">
-    <h2>🎙️ Le Podcast</h2>
-    <p>Écoute les épisodes récents et enrichis ta culture juridique autrement.</p>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=1400&q=80" alt="Podcast">
-      <div class="card-content">
-        <a class="btn" href="https://open.spotify.com">Écouter sur Spotify</a>
+    <h2>🎙️ Écouter le podcast</h2>
+    <p>Disponible sur Spotify :</p>
+    <a href="https://open.spotify.com/show/7oabkTLSTqq6lBAa37bBS6" target="_blank">La Revue Juridique sur Spotify</a>
+    <div class="grid">
+      <div class="card">
+        <h3>Épisode 1</h3>
+        <p>La crise de l'Ancien Régime</p>
+      </div>
+      <div class="card">
+        <h3>Épisode 2</h3>
+        <p>L'arrêt Cadot et la fin du ministre-juge</p>
       </div>
     </div>
   </section>
 
   <section id="fiches">
-    <h2>📚 Fiches de Révision</h2>
-    <p>Accède à des fiches synthétiques par matières pour réviser efficacement.</p>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1584697964403-e40b80b485c9?auto=format&fit=crop&w=1400&q=80" alt="Fiches">
-      <div class="card-content">
-        <a class="btn" href="https://drive.google.com">Voir les fiches</a>
+    <h2>📄 Fiches de révision</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Droit constitutionnel</h3>
+        <a href="#">Télécharger la fiche PDF</a>
+      </div>
+      <div class="card">
+        <h3>Droit administratif</h3>
+        <a href="#">Télécharger la fiche PDF</a>
+      </div>
+      <div class="card">
+        <h3>Droit civil</h3>
+        <a href="#">Télécharger la fiche PDF</a>
       </div>
     </div>
   </section>
 
-  <section id="conseils">
-    <h2>💡 Conseils & Méthodo</h2>
-    <p>Des astuces concrètes pour s’organiser, comprendre les attentes, réussir ses TDs et examens.</p>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1603570419875-e517a092f239?auto=format&fit=crop&w=1400&q=80" alt="Conseils">
-      <div class="card-content">
-        <a class="btn" href="https://docs.google.com">Lire les conseils</a>
+  <section id="tips">
+    <h2>💡 Conseils étudiants</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Réussir ses TD</h3>
+        <p>Comment préparer efficacement tes travaux dirigés ?</p>
       </div>
-    </div>
-  </section>
-
-  <section id="sons">
-    <h2>🔊 Ambiances & sons</h2>
-    <p>Concentre-toi avec des musiques de fond et sons pensés pour les sessions de révision.</p>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1400&q=80" alt="Audio">
-      <div class="card-content">
-        <a class="btn" href="https://soundcloud.com">Écouter</a>
+      <div class="card">
+        <h3>Méthodo fiche</h3>
+        <p>Apprends à faire des fiches de révision impactantes.</p>
+      </div>
+      <div class="card">
+        <h3>Organisation d’un semestre</h3>
+        <p>Planification, examens et équilibre vie perso/études.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Une remarque, une question ou une suggestion ? Écris-moi !</p>
-    <form action="https://formspree.io/f/mnqekoqp" method="POST">
-      <input type="text" name="name" placeholder="Ton prénom" required>
-      <input type="email" name="email" placeholder="Ton email" required>
-      <textarea name="message" rows="5" placeholder="Ton message..." required></textarea>
-      <button type="submit" class="btn">Envoyer</button>
+    <h2>📬 Me contacter</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Ton nom" required />
+      <input type="email" placeholder="Ton email" required />
+      <textarea placeholder="Ton message..." rows="6"></textarea>
+      <button type="submit">Envoyer</button>
     </form>
   </section>
 
   <footer>
-    © 2025 La Revue Juridique — Un projet pensé pour les étudiants en droit.
+    <p>&copy; 2025 La Revue Juridique. Tous droits réservés.</p>
   </footer>
 </body>
+
 </html>
