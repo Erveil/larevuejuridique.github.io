@@ -11,38 +11,34 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
       background: #f8f9fa;
       color: #212529;
       line-height: 1.6;
     }
-
     header {
-      background-color: #1e2a38;
+      background: url('https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
       color: white;
-      padding: 2rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
     }
-
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
-
     header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+      font-size: 1.3rem;
     }
-
     nav {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       background: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
     nav a {
       padding: 1rem 1.5rem;
       text-decoration: none;
@@ -50,30 +46,25 @@
       font-weight: 600;
       transition: 0.3s;
     }
-
     nav a:hover {
       background-color: #f0f0f0;
     }
-
     section {
-      padding: 3rem 1rem;
-      max-width: 900px;
+      padding: 4rem 1rem;
+      max-width: 1100px;
       margin: auto;
     }
-
     section h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: #1e2a38;
       margin-bottom: 1rem;
       text-align: center;
     }
-
     section p {
       font-size: 1.1rem;
       text-align: center;
       margin-bottom: 2rem;
     }
-
     .btn {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -84,61 +75,121 @@
       font-weight: 600;
       transition: background 0.3s;
     }
-
     .btn:hover {
       background: #34495e;
     }
-
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin: 2rem auto;
+      max-width: 700px;
+      overflow: hidden;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .card-content {
+      padding: 2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    input, textarea {
+      padding: 0.8rem;
+      font-family: inherit;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #1e2a38;
+    }
     footer {
       background: #1e2a38;
       color: white;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 2rem 1rem;
       margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>La Revue Juridique</h1>
-    <p>Le podcast qui rend le droit plus clair, plus vivant, plus humain</p>
+    <p>Le site étudiant pour apprendre, réviser et réussir en droit</p>
   </header>
 
   <nav>
     <a href="#podcast">Podcast</a>
     <a href="#fiches">Fiches</a>
     <a href="#conseils">Conseils</a>
-    <a href="#sons">Ressources audio</a>
+    <a href="#sons">Audio</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <section id="podcast">
     <h2>🎙️ Le Podcast</h2>
-    <p>Découvre les épisodes de "La Revue Juridique", le podcast pour réviser le droit autrement.</p>
-    <a class="btn" href="#">Écouter maintenant</a>
+    <p>Écoute les épisodes récents et enrichis ta culture juridique autrement.</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=1400&q=80" alt="Podcast">
+      <div class="card-content">
+        <a class="btn" href="https://open.spotify.com">Écouter sur Spotify</a>
+      </div>
+    </div>
   </section>
 
   <section id="fiches">
     <h2>📚 Fiches de Révision</h2>
-    <p>Des fiches synthétiques pour chaque matière : droit admin, constit, civil, européen, etc.</p>
-    <a class="btn" href="#">Accéder aux fiches</a>
+    <p>Accède à des fiches synthétiques par matières pour réviser efficacement.</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1584697964403-e40b80b485c9?auto=format&fit=crop&w=1400&q=80" alt="Fiches">
+      <div class="card-content">
+        <a class="btn" href="https://drive.google.com">Voir les fiches</a>
+      </div>
+    </div>
   </section>
 
   <section id="conseils">
     <h2>💡 Conseils & Méthodo</h2>
-    <p>Des astuces concrètes pour bien réviser, organiser tes semestres, réussir tes TD et examens.</p>
-    <a class="btn" href="#">Voir les conseils</a>
+    <p>Des astuces concrètes pour s’organiser, comprendre les attentes, réussir ses TDs et examens.</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1603570419875-e517a092f239?auto=format&fit=crop&w=1400&q=80" alt="Conseils">
+      <div class="card-content">
+        <a class="btn" href="https://docs.google.com">Lire les conseils</a>
+      </div>
+    </div>
   </section>
 
   <section id="sons">
-    <h2>🔊 Ressources audio</h2>
-    <p>Des sons, ambiances et musiques de concentration pour réviser dans de bonnes conditions.</p>
-    <a class="btn" href="#">Écouter les sons</a>
+    <h2>🔊 Ambiances & sons</h2>
+    <p>Concentre-toi avec des musiques de fond et sons pensés pour les sessions de révision.</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1400&q=80" alt="Audio">
+      <div class="card-content">
+        <a class="btn" href="https://soundcloud.com">Écouter</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <p>Une remarque, une question ou une suggestion ? Écris-moi !</p>
+    <form action="https://formspree.io/f/mnqekoqp" method="POST">
+      <input type="text" name="name" placeholder="Ton prénom" required>
+      <input type="email" name="email" placeholder="Ton email" required>
+      <textarea name="message" rows="5" placeholder="Ton message..." required></textarea>
+      <button type="submit" class="btn">Envoyer</button>
+    </form>
   </section>
 
   <footer>
-    © 2025 La Revue Juridique — Site pensé pour les étudiants en droit.
+    © 2025 La Revue Juridique — Un projet pensé pour les étudiants en droit.
   </footer>
-
 </body>
 </html>
