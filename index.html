@@ -17,6 +17,10 @@
       --background-overlay: rgba(15, 26, 59, 0.9);
     }
 
+    * {
+      transition: all 0.3s ease;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -36,6 +40,16 @@
 
     header img {
       height: 60px;
+      cursor: pointer;
+    }
+
+    header img:active,
+    nav a:active,
+    .card:active,
+    .card a:active,
+    .contact-form button:active {
+      transform: scale(1.1);
+      filter: brightness(1.2);
     }
 
     nav a {
@@ -44,6 +58,22 @@
       margin-left: 2rem;
       font-weight: 600;
       transition: color 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent-color);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     nav a:hover {
@@ -90,12 +120,13 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       padding: 1.5rem;
       text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
     .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
 
     .card img {
@@ -114,6 +145,8 @@
       color: var(--accent-color);
       text-decoration: none;
       font-weight: 600;
+      display: inline-block;
+      margin-top: 0.5rem;
     }
 
     .contact-form {
@@ -138,6 +171,12 @@
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.05);
     }
 
     footer {
@@ -165,7 +204,6 @@
     <h1>La Revue Juridique</h1>
     <p>Le podcast de droit... mais pas que !</p>
   </section>
-
   <section id="podcast">
     <h2>🎙️ Écouter le podcast</h2>
     <p>Disponible sur <a href="https://open.spotify.com/show/7oabkTLSTqq6lBAa37bBS6" target="_blank">Spotify</a></p>
