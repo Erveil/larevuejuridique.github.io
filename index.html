@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --primary-color: #0f1a3b;
@@ -17,6 +18,13 @@
       --background-overlay: rgba(15, 26, 59, 0.9);
       --soft-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
       --radius: 16px;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #ffffff;
+      --secondary-color: #1c1c2b;
+      --accent-color: #5fa8d3;
+      --background-overlay: rgba(28, 28, 43, 0.9);
     }
 
     * {
@@ -28,7 +36,8 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom, #f7f9fc, #dee5ee);
+      background: url('tribunal.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: var(--primary-color);
     }
 
@@ -43,7 +52,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      animation: fadeSlide 0.8s ease-out;
     }
 
     header img {
@@ -66,12 +74,22 @@
       color: white;
     }
 
+    .theme-toggle {
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 2rem;
+    }
+
     .hero {
       padding: 100px 2rem 80px;
       text-align: center;
       background: linear-gradient(to bottom, #0f1a3b, #1a2b4c);
       color: white;
-      animation: fadeIn 1s ease;
     }
 
     .hero h1 {
@@ -89,10 +107,13 @@
       padding: 4rem 2rem;
       max-width: 1200px;
       margin: 2rem auto;
-      background-color: var(--secondary-color);
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: var(--radius);
       box-shadow: var(--soft-shadow);
-      animation: fadeUp 0.8s ease;
+    }
+
+    [data-theme="dark"] section {
+      background-color: rgba(28, 28, 43, 0.95);
     }
 
     h2 {
@@ -109,7 +130,7 @@
     }
 
     .card {
-      background: #ffffff;
+      background: var(--secondary-color);
       color: var(--primary-color);
       border-radius: var(--radius);
       box-shadow: var(--soft-shadow);
@@ -117,7 +138,6 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      animation: fadeIn 1s ease;
     }
 
     .card:hover {
@@ -126,8 +146,8 @@
     }
 
     .card img {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       object-fit: contain;
       border-radius: 12px;
       margin-bottom: 1rem;
@@ -174,33 +194,38 @@
       transform: scale(1.05);
     }
 
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--soft-shadow);
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    #scrollTopBtn:hover {
+      transform: scale(1.1);
+    }
+
     footer {
       background-color: var(--primary-color);
       color: white;
       text-align: center;
       padding: 2rem 1rem;
-      animation: fadeSlide 1.2s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
-  <header>
+  <header data-aos="fade-down">
     <img src="logo.png" alt="Logo La Revue Juridique">
     <nav>
       <a href="#accueil">Accueil</a>
@@ -208,13 +233,43 @@
       <a href="#fiches">Fiches</a>
       <a href="#tips">Tips</a>
       <a href="#contact">Contact</a>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     </nav>
   </header>
 
-  <section class="hero" id="accueil">
+  <section class="hero" id="accueil" data-aos="fade-up">
     <h1>La Revue Juridique</h1>
     <p>Le podcast de droit... mais pas que !</p>
   </section>
+
+  <section id="podcast" data-aos="fade-up">
+    <h2>🎧 Écouter sur Spotify</h2>
+    <div style="text-align:center; margin-top: 2rem;">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/7oabkTLSTqq6lBAa37bBS6?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.getAttribute("data-theme") === "dark") {
+        html.removeAttribute("data-theme");
+      } else {
+        html.setAttribute("data-theme", "dark");
+      }
+    }
+  </script>
+</body>
+
+</html>
 
   <section id="podcast">
     <h2>🎙️ Écouter le podcast</h2>
