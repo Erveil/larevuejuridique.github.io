@@ -259,6 +259,7 @@
       <a href="#hub">Hub</a>
       <a href="#tips">Tips</a>
       <a href="#contact">Contact</a>
+      <a href="#auth">Mon compte</a>
       <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     </nav>
   </header>
@@ -339,7 +340,7 @@
   🔒 Tu dois <strong>te connecter ou créer un compte (gratuitement)</strong> pour accéder au contenu !
 </section>
 
- <section id="fiches" class="private-section" style="display: none;">
+ <section id="fiches">
     <h2>📄 Fiches de révision</h2>
     <div class="grid">
       <div class="card">
@@ -365,7 +366,7 @@
     </div>
   </section>
 
-<section id="hub"class="private-section" style="display: none;">
+<section id="hub">
   <h2>📄 Hub de partage </h2>
   <div class="grid">
     <a href="hub-L1.html" class="card">
@@ -383,7 +384,7 @@
   </div>
 </section>
 
-  <section id="tips"class="private-section" style="display: none;">
+  <section id="tips">
     <h2>💡 Conseils étudiants</h2>
     <div class="grid">
       <div class="card">
@@ -485,6 +486,30 @@
     checkAuthStatus();
   });
 </script>
+
+<div id="authModal" style="
+  display:none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+">
+  <div style="
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  ">
+    <h3>🔐 Accès réservé</h3>
+    <p>Tu dois <strong>te connecter ou créer un compte gratuitement</strong> pour accéder à ce contenu.</p>
+    <button onclick="closeModal()" style="margin-top: 1rem; padding: 0.8rem 1.2rem; border: none; background: #0f1a3b; color: white; border-radius: 8px;">OK</button>
+  </div>
+</div>
 
 
 </body>
