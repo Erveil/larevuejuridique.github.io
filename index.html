@@ -369,15 +369,15 @@
 <section id="hub">
   <h2>📄 Hub de partage </h2>
   <div class="grid">
-    <a href="hub-L1.html" class="card">
+    <a href="hub-L1.html" class="card protected-link" data-target="hub-L1.html">
       <img src="L1.png" alt="L1">
       <h3>Hub L1</h3>
     </a>
-    <a href="hub-L2.html" class="card">
+    <a href="hub-L2.html" class="card protected-link" data-target="hub-L2.html">
       <img src="L2.png" alt="L2">
       <h3>Hub L2</h3>
     </a>
-    <a href="hub-L3.html" class="card">
+    <a href="hub-L3.html" class="card protected-link" data-target="hub-L3.html">
       <img src="L3.png" alt="L3">
       <h3>Hub L3</h3>
     </a>
@@ -440,7 +440,6 @@
     auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         document.getElementById("auth-status").innerText = "✅ Compte créé avec succès !";
-        checkAuthStatus();
       })
       .catch(error => {
         document.getElementById("auth-status").innerText = "❌ " + error.message;
@@ -453,7 +452,6 @@
     auth.signInWithEmailAndPassword(email, password)
       .then(() => {
         document.getElementById("auth-status").innerText = "👋 Connexion réussie !";
-        checkAuthStatus();
       })
       .catch(error => {
         document.getElementById("auth-status").innerText = "❌ " + error.message;
@@ -463,27 +461,29 @@
   function signOut() {
     auth.signOut().then(() => {
       document.getElementById("auth-status").innerText = "🚪 Déconnecté.";
-      checkAuthStatus();
     });
   }
 
-  function checkAuthStatus() {
-    const user = auth.currentUser;
-    const sections = document.querySelectorAll(".private-section");
-    const warning = document.getElementById("private-warning");
-
-    if (user) {
-      sections.forEach(sec => sec.style.display = "block");
-      if (warning) warning.style.display = "none";
-    } else {
-      sections.forEach(sec => sec.style.display = "none");
-      if (warning) warning.style.display = "block";
-      window.location.hash = "#auth";
-    }
+  function closeModal() {
+    document.getElementById("authModal").style.display = "none";
   }
 
-  auth.onAuthStateChanged(() => {
-    checkAuthStatus();
+  document.addEventListener("DOMContentLoaded", () => {
+    const protectedLinks = document.querySelectorAll(".protected-link");
+
+    protectedLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = link.getAttribute("data-target");
+
+        const user = auth.currentUser;
+        if (user) {
+          window.location.href = target;
+        } else {
+          document.getElementById("authModal").style.display = "flex";
+        }
+      });
+    });
   });
 </script>
 
