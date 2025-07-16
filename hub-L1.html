@@ -2,186 +2,183 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Hub L1 – La Revue Juridique</title>
+  <title>Hub L1 – La Revue Juridique</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
   <style>
-    /* — Reset & base — */
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {font-family: Arial, sans-serif; line-height:1.6; background:#f5f5f5; color:#333;}
-    a {color:#007acc; text-decoration:none;}
-    a:hover {text-decoration:underline;}
-
-    /* — En‑tête & nav — */
-    header {background:#007acc; color:#fff; padding:1rem;}
-    header h1 {margin-bottom:0.5rem;}
-    nav a {margin-right:1rem; color:#fff;}
-
-    /* — Barre de recherche — */
-    .search-bar {
-      background:#fff; padding:1rem; display:flex; gap:.5rem; align-items:flex-end;
-      box-shadow:0 2px 4px rgba(0,0,0,.1); margin:1rem;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #f2f6ff, #ffffff);
+      color: #222;
     }
-    .search-bar label {font-size:.9rem;}
-    .search-bar input[type=text],
-    .search-bar select {
-      padding:.5rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;
+    header, footer {
+      background: #0f1a3b;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .search-bar button {
-      padding:.6rem 1rem; background:#007acc; color:#fff;
-      border:none; border-radius:4px; cursor:pointer;
+    h1, h4 {
+      font-weight: 700;
     }
-    .search-bar button:hover {background:#005fa3;}
-
-    /* — Matières — */
-    .subjects {display:flex; flex-wrap:wrap; gap:1rem; margin:1rem;}
     .subject {
-      background:#fff; flex:1 1 calc(33% - 2rem); min-width:200px;
-      padding:1rem; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.1);
-      cursor:pointer; transition:transform .2s;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
-    .subject:hover {transform:translateY(-3px);}
-    .subject h3 {margin-bottom:.5rem; color:#007acc;}
-
-    /* — Chat/forum — */
-    .forum {
-      background:#fff; margin:1rem; padding:1rem;
-      border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.1);
-      max-width:800px; margin-left:auto; margin-right:auto;
+    .subject .card {
+      border: none;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .forum h2 {margin-bottom:.5rem; color:#007acc;}
-    .messages {max-height:300px; overflow-y:auto; margin-bottom:1rem;}
+    .subject:hover .card {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
     .msg {
-      margin-bottom:.75rem; padding:.5rem;
-      background:#f1f1f1; border-radius:4px;
+      background: #e0ebff;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.75rem;
+      border-radius: 10px;
     }
-    .msg .author {font-weight:bold; font-size:.9rem;}
-    .msg .time {font-size:.8rem; color:#666;}
-    .forum form {display:flex; gap:.5rem;}
-    .forum form input {flex:1; padding:.5rem; border:1px solid #ccc; border-radius:4px;}
-    .forum form button {
-      padding:.5rem 1rem; background:#007acc; color:#fff;
-      border:none; cursor:pointer; border-radius:4px;
+    .search-bar input, .search-bar select {
+      border-radius: 10px;
     }
-    .forum form button:hover {background:#005fa3;}
-
-    /* — Pied de page — */
-    footer {background:#007acc; color:#fff; text-align:center; padding:1rem; margin-top:2rem;}
+    #chatInput {
+      border-radius: 10px;
+    }
+    button {
+      border-radius: 10px !important;
+    }
+    #loginForm {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+    #chatMessages {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    footer {
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .search-bar {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>La Revue Juridique – Hub L1</h1>
-    <nav>
-      <a href="#subjects">Matières</a>
-      <a href="#forum">Forum</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <h1>📚 La Revue Juridique – Hub L1</h1>
+    <p class="mb-0">Un espace collaboratif jeune et dynamique entre étudiants</p>
   </header>
 
-  <!-- Barre de recherche -->
-  <section class="search-bar">
-    <div>
-      <label for="search-text">Rechercher :</label><br>
-      <input type="text" id="search-text" placeholder="🔍 Mots‑clés..." />
+  <div class="container mt-4">
+    <div id="loginForm" class="mb-4">
+      <h4 class="mb-3">Connexion rapide</h4>
+      <input type="text" id="username" class="form-control mb-3" placeholder="Votre prénom ou pseudo">
+      <button class="btn btn-primary w-100" onclick="login()">Entrer dans le Hub</button>
     </div>
-    <div>
-      <label for="sel-subject">Matière :</label><br>
-      <select id="sel-subject">
-        <option value="">-- Toutes --</option>
+
+    <div class="d-flex flex-wrap gap-3 search-bar mb-5 justify-content-center">
+      <input type="text" id="searchText" class="form-control" placeholder="🔍 Rechercher un cours ou une matière" style="max-width:250px">
+      <select id="subjectFilter" class="form-select" style="max-width:200px">
+        <option value="">Toutes les matières</option>
         <option value="civil">Droit civil</option>
         <option value="constitutionnel">Droit constitutionnel</option>
-        <option value="intro">Intro au droit</option>
+        <option value="intro">Introduction au droit</option>
         <option value="anglais">Anglais juridique</option>
         <option value="histoire">Histoire du droit</option>
       </select>
-    </div>
-    <div>
-      <label for="sel-school">Établissement :</label><br>
-      <select id="sel-school">
-        <option value="">-- Tous --</option>
+      <select id="schoolFilter" class="form-select" style="max-width:200px">
+        <option value="">Tous les établissements</option>
         <option value="lyon3">Lyon 3</option>
         <option value="lyon2">Lyon 2</option>
         <option value="sorbonne">Sorbonne</option>
         <option value="assas">Assas</option>
       </select>
     </div>
-    <div>
-      <button id="btn-search">Rechercher</button>
-    </div>
-  </section>
 
-  <!-- Blocs matière -->
-  <section id="subjects" class="subjects">
-    <div class="subject" data-subject="civil">
-      <h3>Droit civil</h3><p>Partager des notes, questions, exercices…</p>
+    <div id="subjectList" class="row g-4 justify-content-center">
+      <div class="col-md-4 subject" data-subject="civil"><div class="card">📘 Droit civil</div></div>
+      <div class="col-md-4 subject" data-subject="constitutionnel"><div class="card">📗 Droit constitutionnel</div></div>
+      <div class="col-md-4 subject" data-subject="intro"><div class="card">📙 Introduction au droit</div></div>
+      <div class="col-md-4 subject" data-subject="anglais"><div class="card">🗣️ Anglais juridique</div></div>
+      <div class="col-md-4 subject" data-subject="histoire"><div class="card">📖 Histoire du droit</div></div>
     </div>
-    <div class="subject" data-subject="constitutionnel">
-      <h3>Droit constitutionnel</h3><p>Discussions sur les institutions, QCM…</p>
-    </div>
-    <div class="subject" data-subject="intro">
-      <h3>Introduction au droit</h3><p>Notions clés, astuces méthodo…</p>
-    </div>
-    <div class="subject" data-subject="anglais">
-      <h3>Anglais juridique</h3><p>Vocabulaire, phrases types, échanges…</p>
-    </div>
-    <div class="subject" data-subject="histoire">
-      <h3>Histoire du droit</h3><p>Périodes, juristes, chronologies…</p>
-    </div>
-  </section>
 
-  <!-- Forum / Chat -->
-  <section id="forum" class="forum">
-    <h2>💬 Forum L1</h2>
-    <div class="messages" id="messages">
-      <div class="msg"><span class="author">Camille</span><span class="time"> — 14:02</span><p>Salut, quelqu’un a le corrigé du TD 3 ?</p></div>
-      <div class="msg"><span class="author">Julien</span><span class="time"> — 14:05</span><p>Je l’ai en PDF, je peux l’envoyer.</p></div>
+    <div class="mt-5">
+      <h4 class="mb-3">💬 Forum – échange entre étudiants</h4>
+      <div id="chatMessages" class="mb-3"></div>
+      <div class="d-flex gap-2">
+        <input id="chatInput" type="text" class="form-control" placeholder="Pose ta question ou partage une info...">
+        <button class="btn btn-success" onclick="sendMessage()">Envoyer</button>
+      </div>
     </div>
-    <form id="chat-form">
-      <input type="text" id="chat-input" placeholder="Écrire un message…" required />
-      <button type="submit">Envoyer</button>
-    </form>
-  </section>
+  </div>
 
-  <footer id="contact">
-    © 2025 La Revue Juridique – Hub L1 • <a href="#">Nous contacter</a>
+  <footer>
+    © 2025 La Revue Juridique – Hub L1 | propulsé par les étudiants, pour les étudiants
   </footer>
 
   <script>
-    // Filtre faux – ici à compléter côté backend ou localStorage si besoin
-    document.getElementById('btn-search').addEventListener('click', () => {
-      const txt = document.getElementById('search-text').value.toLowerCase();
-      const subj = document.getElementById('sel-subject').value;
-      const school = document.getElementById('sel-school').value;
-      alert(`Recherche : texte="${txt}", matière="${subj}", établissement="${school}"`);
-    });
+    const messages = [];
+    let currentUser = null;
 
-    // Chat/forum basique en front
-    const form = document.getElementById('chat-form'), msgs = document.getElementById('messages');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const text = document.getElementById('chat-input').value.trim();
-      if(!text) return;
-      const now = new Date();
-      const hh = now.getHours().toString().padStart(2,'0');
-      const mm = now.getMinutes().toString().padStart(2,'0');
-      const div = document.createElement('div');
-      div.className = 'msg';
-      div.innerHTML = `<span class="author">Moi</span><span class="time"> — ${hh}:${mm}</span><p>${text}</p>`;
-      msgs.appendChild(div);
-      form.reset();
-      msgs.scrollTop = msgs.scrollHeight;
-    });
+    function login() {
+      const username = document.getElementById("username").value;
+      if (username) {
+        currentUser = username;
+        document.getElementById("loginForm").style.display = "none";
+      }
+    }
 
-    // Cliquer sur matière → alert ou redirection
-    document.querySelectorAll('.subject').forEach(el => {
-      el.addEventListener('click', () => {
-        const s = el.dataset.subject;
-        alert(`Aller dans la section de ${el.innerText}`);
-        // tu peux rediriger ici vers une sous‑page
+    function sendMessage() {
+      if (!currentUser) return alert("Connectez-vous d'abord !");
+      const input = document.getElementById("chatInput");
+      const message = input.value.trim();
+      if (!message) return;
+      messages.push({ user: currentUser, text: message });
+      input.value = "";
+      displayMessages();
+    }
+
+    function displayMessages() {
+      const container = document.getElementById("chatMessages");
+      container.innerHTML = "";
+      messages.forEach(m => {
+        container.innerHTML += `<div class='msg'><strong>${m.user}</strong> : ${m.text}</div>`;
       });
-    });
-  </script>
+    }
 
+    document.getElementById("searchText").addEventListener("input", filterSubjects);
+    document.getElementById("subjectFilter").addEventListener("change", filterSubjects);
+    document.getElementById("schoolFilter").addEventListener("change", filterSubjects);
+
+    function filterSubjects() {
+      const text = document.getElementById("searchText").value.toLowerCase();
+      const subject = document.getElementById("subjectFilter").value;
+      const subjects = document.querySelectorAll(".subject");
+
+      subjects.forEach(el => {
+        const matchText = el.textContent.toLowerCase().includes(text);
+        const matchSubject = subject === "" || el.dataset.subject === subject;
+        el.style.display = (matchText && matchSubject) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
