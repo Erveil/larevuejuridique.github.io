@@ -74,11 +74,33 @@
       --text-dark: #ffffff;
       --bg-dark: rgba(0,0,0,0.8);
     }
+
+    .home-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  color: white;
+  backdrop-filter: blur(4px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: white;
+  color: #0f1a3b;
+  border-color: #ffffff;
+}
+
   </style>
 </head>
  
 <body>
- 
+  
+ <a href="index.html" class="btn btn-outline-light btn-sm home-btn">🏠 Accueil</a>
+
   <button class="btn btn-sm btn-light mode-switch" onclick="toggleMode()">🌙</button>
   <header>
     <h1>📚 La Revue Juridique – Hub L1</h1>
