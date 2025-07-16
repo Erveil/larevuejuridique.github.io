@@ -413,6 +413,7 @@
     <button onclick="signUp()">Créer un compte</button>
     <button onclick="signIn()">Se connecter</button>
     <button onclick="signOut()">Se déconnecter</button>
+    <button onclick="resetPassword()">Mot de passe oublié</button>
     <p id="auth-status" style="margin-top: 1rem;"></p>
   </div>
 </section>
@@ -463,6 +464,22 @@
       document.getElementById("auth-status").innerText = "🚪 Déconnecté.";
     });
   }
+
+  function resetPassword() {
+  const email = document.getElementById("email").value;
+  if (!email) {
+    alert("Entre ton email pour réinitialiser le mot de passe.");
+    return;
+  }
+
+  firebase.auth().sendPasswordResetEmail(email)
+    .then(() => {
+      document.getElementById("auth-status").innerText = "📬 Email de réinitialisation envoyé !";
+    })
+    .catch((error) => {
+      document.getElementById("auth-status").innerText = "❌ " + error.message;
+    });
+}
 
   function closeModal() {
     document.getElementById("authModal").style.display = "none";
