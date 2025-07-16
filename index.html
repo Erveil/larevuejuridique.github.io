@@ -242,8 +242,8 @@
       <a href="#hub">Hub</a>
       <a href="#tips">Tips</a>
       <a href="#contact">Contact</a>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     </nav>
-    <button type="button" class="theme-toggle" onclick="toggleTheme()">🌙</button>
   </header>
 
   <section class="hero" id="accueil" data-aos="fade-up">
@@ -251,47 +251,138 @@
     <p>Le podcast de droit... mais pas que !</p>
   </section>
 
-  <section id="presentation-site" style="background-color: var(--secondary-color); padding: 40px 20px; border-radius: var(--radius); max-width: 900px; margin: 60px auto; box-shadow: var(--soft-shadow); color: var(--primary-color);" data-aos="fade-up">
-    <h2 style="font-size: 2rem; margin-bottom: 20px; text-align: center; color: var(--primary-color);">🎓 C’est quoi ce site ?</h2>
-    <p style="font-size: 1.1rem; line-height: 1.8;">
-      Bienvenue sur <strong>La Revue Juridique</strong>, le site qui accompagne le podcast du même nom — mais pas seulement !
-    </p>
-    <ul style="list-style-type: none; padding-left: 0; margin: 20px 0;">
-      <li style="margin-bottom: 10px;">🎙️ <strong>Tous les épisodes du podcast</strong>, pour apprendre et comprendre le droit autrement</li>
-      <li style="margin-bottom: 10px;">📚 <strong>Des fiches de révision</strong> claires et synthétiques pour t’aider dans toutes les matières juridiques</li>
-      <li style="margin-bottom: 10px;">🤝 <strong>Un hub collaboratif</strong>, où chaque étudiant peut partager ses cours gratuitement et récupérer ceux des autres</li>
-      <li style="margin-bottom: 10px;">💡 <strong>Des tips et conseils</strong> pour réussir à la fac, gérer les TD et survivre aux exams</li>
-    </ul>
-    <p style="font-size: 1.1rem; line-height: 1.8;">
-      Un site pensé <em>par un étudiant, pour les étudiants</em>, pour rendre le droit plus accessible, vivant… et pourquoi pas agréable !
-    </p>
-  </section>
+   <section id="presentation-site" style="background-color: var(--secondary-color); padding: 40px 20px; border-radius: var(--radius); max-width: 900px; margin: 60px auto; box-shadow: var(--soft-shadow); color: var(--primary-color);" data-aos="fade-up">
+  <h2 style="font-size: 2rem; margin-bottom: 20px; text-align: center; color: var(--primary-color);">🎓 C’est quoi ce site ?</h2>
+  <p style="font-size: 1.1rem; line-height: 1.8;">
+    Bienvenue sur <strong>La Revue Juridique</strong>, le site qui accompagne le podcast du même nom — mais pas seulement !
+  </p>
+  <ul style="list-style-type: none; padding-left: 0; margin: 20px 0;">
+    <li style="margin-bottom: 10px;">🎙️ <strong>Tous les épisodes du podcast</strong>, pour apprendre et comprendre le droit autrement</li>
+    <li style="margin-bottom: 10px;">📚 <strong>Des fiches de révision</strong> claires et synthétiques pour t’aider dans toutes les matières juridiques</li>
+    <li style="margin-bottom: 10px;">🤝 <strong>Un hub collaboratif</strong>, où chaque étudiant peut partager ses cours gratuitement et récupérer ceux des autres</li>
+    <li style="margin-bottom: 10px;">💡 <strong>Des tips et conseils</strong> pour réussir à la fac, gérer les TD et survivre aux exams</li>
+  </ul>
+  <p style="font-size: 1.1rem; line-height: 1.8;">
+    Un site pensé <em>par un étudiant, pour les étudiants</em>, pour rendre le droit plus accessible, vivant… et pourquoi pas agréable !
+  </p>
+</section>
 
   <section id="podcast" data-aos="fade-up">
     <h2>🎧 Écouter le dernier épisode</h2>
     <div style="text-align:center; margin-top: 2rem;">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/7oabkTLSTqq6lBAa37bBS6?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/7oabkTLSTqq6lBAa37bBS6?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.getAttribute("data-theme") === "dark") {
+        html.removeAttribute("data-theme");
+      } else {
+        html.setAttribute("data-theme", "dark");
+      }
+    }
+  </script>
+</body>
+
+</html>
+
+  <section id="podcast">
+    <h2>🎙️ Écouter le podcast</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="spotify.svg" alt="Podcast">
+        <h3>Spotify</h3>
+        <a href="https://open.spotify.com/episode/65JCvBfxmoQ7vzXm3RGrE8" target="_blank">Écouter</a>
+      </div>
+      <div class="card">
+        <img src="deezer.svg" alt="Podcast">
+        <h3>Deezer</h3>
+        <a href="https://www.deezer.com/fr/show/1001187931" target="_blank">Écouter</a>
+      </div>
+      <div class="card">
+        <img src="apple.svg" alt="Podcast">
+        <h3>Apple podcast</h3>
+        <a href="https://podcasts.apple.com/fr/podcast/la-revue-juridique/id1769827870" target="_blank">Écouter</a>
+      </div>
+      <!-- Ajoute ici les autres cartes podcast si besoin -->
     </div>
   </section>
 
   <section id="fiches">
     <h2>📄 Fiches de révision</h2>
     <div class="grid">
-      <!-- Cartes pour les fiches -->
+      <div class="card">
+        <img src="code.jpg" alt="Code civil">
+        <h3>Droit civil</h3>
+        <a href="fiche-civil.html">Accéder</a>
+      </div>
+      <div class="card">
+        <img src="livres.jpg" alt="Livres de droit">
+        <h3>Droit administratif</h3>
+        <a href="fiche-admin.html">Accéder</a>
+      </div>
+      <div class="card">
+        <img src="urne.jpg" alt="Constitutionnel">
+        <h3>Droit constitutionnel</h3>
+        <a href="fiche-constit.html">Accéder</a>
+      </div>
+      <div class="card">
+        <img src="statut.jpg" alt="Pénal">
+        <h3>Droit pénal</h3>
+        <a href="fiche-penal.html">Accéder</a>
+      </div>
     </div>
   </section>
 
-  <section id="hub">
+<section id="hub">
     <h2>📄 Hub de partage </h2>
     <div class="grid">
-      <!-- Cartes Hub L1, L2, L3 -->
+      <div class="card">
+        <img src="L1.png" alt="L1">
+        <h3>Hub L1 </h3>
+        <a href="hub-L1.html">Accéder</a>
+      </div>
+      <div class="card">
+        <img src="L2.png" alt="L2">
+        <h3>Hub L2</h3>
+        <a href="hub-L2.html">Accéder</a>
+      </div>
+      <div class="card">
+        <img src="L3.png" alt="L3">
+        <h3>Hub L3</h3>
+        <a href="hub-L3.html">Accéder</a>
+      </div>
     </div>
   </section>
 
   <section id="tips">
     <h2>💡 Conseils étudiants</h2>
     <div class="grid">
-      <!-- Cartes conseils -->
+      <div class="card">
+        <img src="amphi.jpg" alt="Amphithéâtre">
+        <h3>Réussir ses TD</h3>
+        <a href="reussir-td.html">Lire</a>
+      </div>
+      <div class="card">
+        <img src="bureau.jpg" alt="Bibliothèque">
+        <h3>Méthodologie</h3>
+        <a href="methodologie.html">Lire</a>
+      </div>
+      <div class="card">
+        <img src="calendrier.jpg" alt="Organisation">
+        <h3>Organiser son semestre</h3>
+        <a href="organisation.html">Lire</a>
+      </div>
     </div>
   </section>
 
@@ -305,25 +396,9 @@
     </form>
   </section>
 
-  <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
-
   <footer>
     <p>&copy; 2025 La Revue Juridique // Studio Erveil. Tous droits réservés.</p>
   </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.getAttribute("data-theme") === "dark") {
-        html.removeAttribute("data-theme");
-      } else {
-        html.setAttribute("data-theme", "dark");
-      }
-    }
-  </script>
 </body>
 
 </html>
