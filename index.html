@@ -230,6 +230,23 @@
       padding: 2rem 1rem;
     }
   </style>
+
+  <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAibz4Sqt6nxVNYMmobFz2VKbfOWKdM8Vs",
+    authDomain: "larevuejuridique-e2cc4.firebaseapp.com",
+    projectId: "larevuejuridique-e2cc4",
+    storageBucket: "larevuejuridique-e2cc4.firebasestorage.app",
+    messagingSenderId: "522629069595",
+    appId: "1:522629069595:web:adb7597290909e40a3b1be",
+    measurementId: "G-S4S72GY5J8"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 </head>
 
 <body>
@@ -383,6 +400,18 @@
     </div>
   </section>
 
+<section id="auth">
+  <h2>🔐 Connexion / Inscription</h2>
+  <div class="contact-form">
+    <input type="email" id="email" placeholder="Ton email" required />
+    <input type="password" id="password" placeholder="Mot de passe" required />
+    <button onclick="signUp()">Créer un compte</button>
+    <button onclick="signIn()">Se connecter</button>
+    <button onclick="signOut()">Se déconnecter</button>
+    <p id="auth-status" style="margin-top: 1rem;"></p>
+  </div>
+</section>
+
   <section id="contact">
     <h2>📬 Me contacter</h2>
     <form class="contact-form">
@@ -396,6 +425,47 @@
   <footer>
     <p>&copy; 2025 La Revue Juridique // Studio Erveil. Tous droits réservés.</p>
   </footer>
+
+<script>
+  const auth = firebase.auth();
+
+  function signUp() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    auth.createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        document.getElementById("auth-status").innerText = "✅ Compte créé avec succès !";
+      })
+      .catch(error => {
+        document.getElementById("auth-status").innerText = "❌ " + error.message;
+      });
+  }
+
+  function signIn() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    auth.signInWithEmailAndPassword(email, password)
+      .then(() => {
+        document.getElementById("auth-status").innerText = "👋 Connexion réussie !";
+      })
+      .catch(error => {
+        document.getElementById("auth-status").innerText = "❌ " + error.message;
+      });
+  }
+
+  function signOut() {
+    auth.signOut().then(() => {
+      document.getElementById("auth-status").innerText = "🚪 Déconnecté.";
+    });
+  }
+
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      document.getElementById("auth-status").innerText = `✅ Connecté : ${user.email}`;
+    }
+  });
+</script>
+
 </body>
 
 </html>
