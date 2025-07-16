@@ -435,6 +435,7 @@
     auth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         document.getElementById("auth-status").innerText = "✅ Compte créé avec succès !";
+        checkAuthStatus();
       })
       .catch(error => {
         document.getElementById("auth-status").innerText = "❌ " + error.message;
@@ -447,6 +448,7 @@
     auth.signInWithEmailAndPassword(email, password)
       .then(() => {
         document.getElementById("auth-status").innerText = "👋 Connexion réussie !";
+        checkAuthStatus();
       })
       .catch(error => {
         document.getElementById("auth-status").innerText = "❌ " + error.message;
@@ -456,15 +458,30 @@
   function signOut() {
     auth.signOut().then(() => {
       document.getElementById("auth-status").innerText = "🚪 Déconnecté.";
+      checkAuthStatus();
     });
   }
 
-  auth.onAuthStateChanged(user => {
+  function checkAuthStatus() {
+    const user = auth.currentUser;
+    const sections = document.querySelectorAll(".private-section");
+    const warning = document.getElementById("private-warning");
+
     if (user) {
-      document.getElementById("auth-status").innerText = `✅ Connecté : ${user.email}`;
+      sections.forEach(sec => sec.style.display = "block");
+      if (warning) warning.style.display = "none";
+    } else {
+      sections.forEach(sec => sec.style.display = "none");
+      if (warning) warning.style.display = "block";
+      window.location.hash = "#auth";
     }
+  }
+
+  auth.onAuthStateChanged(() => {
+    checkAuthStatus();
   });
 </script>
+
 
 </body>
 
