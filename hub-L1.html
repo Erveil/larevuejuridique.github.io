@@ -1,71 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Hub collaboratif L1 – La Revue Juridique</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Hub L1 – La Revue Juridique</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
+    /* — Reset & base — */
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family: Arial, sans-serif; line-height:1.6; background:#f5f5f5; color:#333;}
+    a {color:#007acc; text-decoration:none;}
+    a:hover {text-decoration:underline;}
+
+    /* — En‑tête & nav — */
+    header {background:#007acc; color:#fff; padding:1rem;}
+    header h1 {margin-bottom:0.5rem;}
+    nav a {margin-right:1rem; color:#fff;}
+
+    /* — Barre de recherche — */
+    .search-bar {
+      background:#fff; padding:1rem; display:flex; gap:.5rem; align-items:flex-end;
+      box-shadow:0 2px 4px rgba(0,0,0,.1); margin:1rem;
     }
-    .hub-container {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
+    .search-bar label {font-size:.9rem;}
+    .search-bar input[type=text],
+    .search-bar select {
+      padding:.5rem; font-size:1rem; border:1px solid #ccc; border-radius:4px;
     }
-    h1 {
-      color: #0f1a3b;
-      font-size: 2rem;
+    .search-bar button {
+      padding:.6rem 1rem; background:#007acc; color:#fff;
+      border:none; border-radius:4px; cursor:pointer;
     }
-    .hub-section {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      padding: 1.5rem;
+    .search-bar button:hover {background:#005fa3;}
+
+    /* — Matières — */
+    .subjects {display:flex; flex-wrap:wrap; gap:1rem; margin:1rem;}
+    .subject {
+      background:#fff; flex:1 1 calc(33% - 2rem); min-width:200px;
+      padding:1rem; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.1);
+      cursor:pointer; transition:transform .2s;
     }
-    .hub-section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+    .subject:hover {transform:translateY(-3px);}
+    .subject h3 {margin-bottom:.5rem; color:#007acc;}
+
+    /* — Chat/forum — */
+    .forum {
+      background:#fff; margin:1rem; padding:1rem;
+      border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.1);
+      max-width:800px; margin-left:auto; margin-right:auto;
     }
-    .hub-section a {
-      display: block;
-      color: #1a73e8;
-      margin: 0.3rem 0;
-      text-decoration: none;
+    .forum h2 {margin-bottom:.5rem; color:#007acc;}
+    .messages {max-height:300px; overflow-y:auto; margin-bottom:1rem;}
+    .msg {
+      margin-bottom:.75rem; padding:.5rem;
+      background:#f1f1f1; border-radius:4px;
     }
+    .msg .author {font-weight:bold; font-size:.9rem;}
+    .msg .time {font-size:.8rem; color:#666;}
+    .forum form {display:flex; gap:.5rem;}
+    .forum form input {flex:1; padding:.5rem; border:1px solid #ccc; border-radius:4px;}
+    .forum form button {
+      padding:.5rem 1rem; background:#007acc; color:#fff;
+      border:none; cursor:pointer; border-radius:4px;
+    }
+    .forum form button:hover {background:#005fa3;}
+
+    /* — Pied de page — */
+    footer {background:#007acc; color:#fff; text-align:center; padding:1rem; margin-top:2rem;}
   </style>
 </head>
 <body>
-  <div class="hub-container">
-    <h1>🎓 Hub Collaboratif</h1>
 
-    <div class="hub-section">
-      <h2>📘 Cours partagés par les étudiants</h2>
-      <a href="#">Droit Constitutionnel – L1</a>
-      <a href="#">Droit Civil – L1</a>
-      <a href="#">Méthodologie du cas pratique – L2</a>
-    </div>
+  <header>
+    <h1>La Revue Juridique – Hub L1</h1>
+    <nav>
+      <a href="#subjects">Matières</a>
+      <a href="#forum">Forum</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div class="hub-section">
-      <h2>🎧 Podcasts et épisodes</h2>
-      <a href="#">Épisode 1 – La chute de l’Ancien Régime</a>
-      <a href="#">Épisode 4 – Arrêt Cadot expliqué</a>
+  <!-- Barre de recherche -->
+  <section class="search-bar">
+    <div>
+      <label for="search-text">Rechercher :</label><br>
+      <input type="text" id="search-text" placeholder="🔍 Mots‑clés..." />
     </div>
+    <div>
+      <label for="sel-subject">Matière :</label><br>
+      <select id="sel-subject">
+        <option value="">-- Toutes --</option>
+        <option value="civil">Droit civil</option>
+        <option value="constitutionnel">Droit constitutionnel</option>
+        <option value="intro">Intro au droit</option>
+        <option value="anglais">Anglais juridique</option>
+        <option value="histoire">Histoire du droit</option>
+      </select>
+    </div>
+    <div>
+      <label for="sel-school">Établissement :</label><br>
+      <select id="sel-school">
+        <option value="">-- Tous --</option>
+        <option value="lyon3">Lyon 3</option>
+        <option value="lyon2">Lyon 2</option>
+        <option value="sorbonne">Sorbonne</option>
+        <option value="assas">Assas</option>
+      </select>
+    </div>
+    <div>
+      <button id="btn-search">Rechercher</button>
+    </div>
+  </section>
 
-    <div class="hub-section">
-      <h2>📄 Fiches de révision</h2>
-      <a href="#">DDHC – fiche synthèse</a>
-      <a href="#">Les grands arrêts de droit admin</a>
+  <!-- Blocs matière -->
+  <section id="subjects" class="subjects">
+    <div class="subject" data-subject="civil">
+      <h3>Droit civil</h3><p>Partager des notes, questions, exercices…</p>
     </div>
+    <div class="subject" data-subject="constitutionnel">
+      <h3>Droit constitutionnel</h3><p>Discussions sur les institutions, QCM…</p>
+    </div>
+    <div class="subject" data-subject="intro">
+      <h3>Introduction au droit</h3><p>Notions clés, astuces méthodo…</p>
+    </div>
+    <div class="subject" data-subject="anglais">
+      <h3>Anglais juridique</h3><p>Vocabulaire, phrases types, échanges…</p>
+    </div>
+    <div class="subject" data-subject="histoire">
+      <h3>Histoire du droit</h3><p>Périodes, juristes, chronologies…</p>
+    </div>
+  </section>
 
-    <div class="hub-section">
-      <h2>📤 Partage ton cours</h2>
-      <p>Tu veux aider les autres ? Envoie ton cours à <a href="mailto:contact@larevuejuridique.fr">contact@larevuejuridique.fr</a></p>
+  <!-- Forum / Chat -->
+  <section id="forum" class="forum">
+    <h2>💬 Forum L1</h2>
+    <div class="messages" id="messages">
+      <div class="msg"><span class="author">Camille</span><span class="time"> — 14:02</span><p>Salut, quelqu’un a le corrigé du TD 3 ?</p></div>
+      <div class="msg"><span class="author">Julien</span><span class="time"> — 14:05</span><p>Je l’ai en PDF, je peux l’envoyer.</p></div>
     </div>
-  </div>
+    <form id="chat-form">
+      <input type="text" id="chat-input" placeholder="Écrire un message…" required />
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer id="contact">
+    © 2025 La Revue Juridique – Hub L1 • <a href="#">Nous contacter</a>
+  </footer>
+
+  <script>
+    // Filtre faux – ici à compléter côté backend ou localStorage si besoin
+    document.getElementById('btn-search').addEventListener('click', () => {
+      const txt = document.getElementById('search-text').value.toLowerCase();
+      const subj = document.getElementById('sel-subject').value;
+      const school = document.getElementById('sel-school').value;
+      alert(`Recherche : texte="${txt}", matière="${subj}", établissement="${school}"`);
+    });
+
+    // Chat/forum basique en front
+    const form = document.getElementById('chat-form'), msgs = document.getElementById('messages');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const text = document.getElementById('chat-input').value.trim();
+      if(!text) return;
+      const now = new Date();
+      const hh = now.getHours().toString().padStart(2,'0');
+      const mm = now.getMinutes().toString().padStart(2,'0');
+      const div = document.createElement('div');
+      div.className = 'msg';
+      div.innerHTML = `<span class="author">Moi</span><span class="time"> — ${hh}:${mm}</span><p>${text}</p>`;
+      msgs.appendChild(div);
+      form.reset();
+      msgs.scrollTop = msgs.scrollHeight;
+    });
+
+    // Cliquer sur matière → alert ou redirection
+    document.querySelectorAll('.subject').forEach(el => {
+      el.addEventListener('click', () => {
+        const s = el.dataset.subject;
+        alert(`Aller dans la section de ${el.innerText}`);
+        // tu peux rediriger ici vers une sous‑page
+      });
+    });
+  </script>
+
 </body>
 </html>
