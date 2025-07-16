@@ -4,40 +4,56 @@
   <meta charset="UTF-8" />
   <title>Hub L1 – La Revue Juridique</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
   <style>
+    :root {
+      --primary-color: #0f1a3b;
+      --bg-light: rgba(255,255,255,0.85);
+      --bg-dark: rgba(15,26,59,0.9);
+      --text-light: #ffffff;
+      --text-dark: #0f1a3b;
+    }
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #f2f6ff, #ffffff);
-      color: #222;
+      background: url('tribunal.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-dark);
     }
     header, footer {
-      background: #0f1a3b;
-      color: white;
+      background: var(--bg-dark);
+      color: var(--text-light);
       padding: 1.5rem;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     h1, h4 {
+      font-family: 'Playfair Display', serif;
       font-weight: 700;
     }
-    .subject {
-      cursor: pointer;
-      transition: all 0.3s ease;
+    .container-glass {
+      background: var(--bg-light);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin-top: 2rem;
     }
     .subject .card {
       border: none;
       border-radius: 12px;
       background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
     }
     .subject:hover .card {
       transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .subject img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
     }
     .msg {
       background: #e0ebff;
@@ -45,56 +61,39 @@
       margin-bottom: 0.75rem;
       border-radius: 10px;
     }
-    .search-bar input, .search-bar select {
+    .search-bar input, .search-bar select, #chatInput {
       border-radius: 10px;
     }
-    #chatInput {
-      border-radius: 10px;
+    .mode-switch {
+      position: fixed;
+      top: 10px;
+      right: 10px;
     }
-    button {
-      border-radius: 10px !important;
-    }
-    #loginForm {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-      max-width: 500px;
-      margin: 2rem auto;
-    }
-    #chatMessages {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    footer {
-      margin-top: 3rem;
-    }
-    @media (max-width: 768px) {
-      .search-bar {
-        flex-direction: column;
-      }
+    .dark-mode {
+      --bg-light: rgba(15,26,59,0.9);
+      --text-dark: #ffffff;
+      --bg-dark: rgba(0,0,0,0.8);
     }
   </style>
 </head>
 <body>
+  <button class="btn btn-sm btn-light mode-switch" onclick="toggleMode()">🌙</button>
   <header>
     <h1>📚 La Revue Juridique – Hub L1</h1>
-    <p class="mb-0">Un espace collaboratif jeune et dynamique entre étudiants</p>
+    <p class="mb-0">Un espace collaboratif jeune et moderne pour étudiants</p>
   </header>
 
-  <div class="container mt-4">
+  <div class="container container-glass">
+    <!-- Login -->
     <div id="loginForm" class="mb-4">
-      <h4 class="mb-3">Connexion rapide</h4>
-      <input type="text" id="username" class="form-control mb-3" placeholder="Votre prénom ou pseudo">
+      <h4 class="mb-3">Connexion</h4>
+      <input type="text" id="username" class="form-control mb-3" placeholder="Prénom ou pseudo">
       <button class="btn btn-primary w-100" onclick="login()">Entrer dans le Hub</button>
     </div>
 
+    <!-- Recherche -->
     <div class="d-flex flex-wrap gap-3 search-bar mb-5 justify-content-center">
-      <input type="text" id="searchText" class="form-control" placeholder="🔍 Rechercher un cours ou une matière" style="max-width:250px">
+      <input type="text" id="searchText" class="form-control" placeholder="🔍 Rechercher une matière" style="max-width:250px">
       <select id="subjectFilter" class="form-select" style="max-width:200px">
         <option value="">Toutes les matières</option>
         <option value="civil">Droit civil</option>
@@ -112,26 +111,53 @@
       </select>
     </div>
 
+    <!-- Matières -->
     <div id="subjectList" class="row g-4 justify-content-center">
-      <div class="col-md-4 subject" data-subject="civil"><div class="card">📘 Droit civil</div></div>
-      <div class="col-md-4 subject" data-subject="constitutionnel"><div class="card">📗 Droit constitutionnel</div></div>
-      <div class="col-md-4 subject" data-subject="intro"><div class="card">📙 Introduction au droit</div></div>
-      <div class="col-md-4 subject" data-subject="anglais"><div class="card">🗣️ Anglais juridique</div></div>
-      <div class="col-md-4 subject" data-subject="histoire"><div class="card">📖 Histoire du droit</div></div>
+      <div class="col-md-4 subject" data-subject="civil">
+        <div class="card">
+          <img src="civil.jpg" alt="Droit civil">
+          <div class="p-3">📘 Droit civil</div>
+        </div>
+      </div>
+      <div class="col-md-4 subject" data-subject="constitutionnel">
+        <div class="card">
+          <img src="constitutionnel.jpg" alt="Droit constitutionnel">
+          <div class="p-3">📗 Droit constitutionnel</div>
+        </div>
+      </div>
+      <div class="col-md-4 subject" data-subject="intro">
+        <div class="card">
+          <img src="intro.jpg" alt="Introduction au droit">
+          <div class="p-3">📙 Introduction au droit</div>
+        </div>
+      </div>
+      <div class="col-md-4 subject" data-subject="anglais">
+        <div class="card">
+          <img src="anglais.jpg" alt="Anglais juridique">
+          <div class="p-3">🗣️ Anglais juridique</div>
+        </div>
+      </div>
+      <div class="col-md-4 subject" data-subject="histoire">
+        <div class="card">
+          <img src="histoire.jpg" alt="Histoire du droit">
+          <div class="p-3">📖 Histoire du droit</div>
+        </div>
+      </div>
     </div>
 
+    <!-- Forum -->
     <div class="mt-5">
-      <h4 class="mb-3">💬 Forum – échange entre étudiants</h4>
+      <h4 class="mb-3">💬 Forum – échanges étudiants</h4>
       <div id="chatMessages" class="mb-3"></div>
       <div class="d-flex gap-2">
-        <input id="chatInput" type="text" class="form-control" placeholder="Pose ta question ou partage une info...">
+        <input id="chatInput" type="text" class="form-control" placeholder="Partage une info, un lien ou une question…">
         <button class="btn btn-success" onclick="sendMessage()">Envoyer</button>
       </div>
     </div>
   </div>
 
   <footer>
-    © 2025 La Revue Juridique – Hub L1 | propulsé par les étudiants, pour les étudiants
+    © 2025 La Revue Juridique – Hub L1 | Pensé pour les étudiants
   </footer>
 
   <script>
@@ -164,10 +190,6 @@
       });
     }
 
-    document.getElementById("searchText").addEventListener("input", filterSubjects);
-    document.getElementById("subjectFilter").addEventListener("change", filterSubjects);
-    document.getElementById("schoolFilter").addEventListener("change", filterSubjects);
-
     function filterSubjects() {
       const text = document.getElementById("searchText").value.toLowerCase();
       const subject = document.getElementById("subjectFilter").value;
@@ -178,6 +200,14 @@
         const matchSubject = subject === "" || el.dataset.subject === subject;
         el.style.display = (matchText && matchSubject) ? "block" : "none";
       });
+    }
+
+    document.getElementById("searchText").addEventListener("input", filterSubjects);
+    document.getElementById("subjectFilter").addEventListener("change", filterSubjects);
+    document.getElementById("schoolFilter").addEventListener("change", filterSubjects);
+
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
     }
   </script>
 </body>
