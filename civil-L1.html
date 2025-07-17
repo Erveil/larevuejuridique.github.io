@@ -16,35 +16,65 @@
     }
 
     body {
-      font-family: 'Times', sans-serif;
-      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      background: url('tribunal.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: var(--primary-color);
+      margin: 0;
+      padding: 0;
+      backdrop-filter: blur(4px);
     }
 
     header {
-      background-color: var(--primary-color);
+      background-color: rgba(15, 26, 59, 0.9);
       color: var(--secondary-color);
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 1rem;
       text-align: center;
+      position: relative;
+    }
+
+    .home-btn {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid white;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: white;
+      color: var(--primary-color);
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
+      margin-bottom: 0.3rem;
     }
 
     .theme-section {
       margin: 2rem auto;
-      max-width: 900px;
+      max-width: 1000px;
+      padding: 0 1rem;
     }
 
     .theme-card {
-      background-color: var(--secondary-color);
-      border: 1px solid #dee2e6;
+      background-color: rgba(255, 255, 255, 0.85);
       border-radius: 1rem;
       padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-4px);
     }
 
     .theme-card h3 {
@@ -59,50 +89,59 @@
     li {
       margin-bottom: 0.5rem;
     }
+
+    li a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: color 0.2s;
+    }
+
+    li a:hover {
+      color: var(--accent-color);
+    }
   </style>
 </head>
 
 <body>
   <header>
+    <a class="home-btn" href="index.html">← Accueil</a>
     <h1>Droit Civil – L1</h1>
     <p>Retrouve ici tous les thèmes clés du droit civil en première année</p>
   </header>
 
   <div class="theme-section">
-
     <div class="theme-card">
       <h3>Droit des personnes</h3>
       <ul>
-        <li>La personnalité juridique</li>
-        <li>Le nom, le prénom</li>
-        <li>La protection des incapables (mineurs, majeurs protégés)</li>
-        <li>La disparition, l'absence</li>
-        <li>La nationalité</li>
+        <li><a href="droit-personnes.html#personnalite">La personnalité juridique</a></li>
+        <li><a href="droit-personnes.html#nom">Le nom, le prénom</a></li>
+        <li><a href="droit-personnes.html#incapacites">La protection des incapables</a></li>
+        <li><a href="droit-personnes.html#absence">La disparition, l'absence</a></li>
+        <li><a href="droit-personnes.html#nationalite">La nationalité</a></li>
       </ul>
     </div>
 
     <div class="theme-card">
       <h3>Droit de la famille</h3>
       <ul>
-        <li>Le mariage (conditions, effets, nullité)</li>
-        <li>Le divorce (types, procédures, conséquences)</li>
-        <li>Le PACS et le concubinage</li>
-        <li>La filiation (établissement, contestation, adoption)</li>
-        <li>L'autorité parentale</li>
+        <li><a href="droit-famille.html#mariage">Le mariage</a></li>
+        <li><a href="droit-famille.html#divorce">Le divorce</a></li>
+        <li><a href="droit-famille.html#pacs">Le PACS et le concubinage</a></li>
+        <li><a href="droit-famille.html#filiation">La filiation</a></li>
+        <li><a href="droit-famille.html#autorite">L'autorité parentale</a></li>
       </ul>
     </div>
 
     <div class="theme-card">
       <h3>Droit des biens</h3>
       <ul>
-        <li>Les classifications des biens</li>
-        <li>La possession et la propriété</li>
-        <li>Les démembrements du droit de propriété</li>
-        <li>La publicité foncière</li>
-        <li>Les modes d'acquisition de la propriété</li>
+        <li><a href="droit-biens.html#classification">Les classifications des biens</a></li>
+        <li><a href="droit-biens.html#propriete">La possession et la propriété</a></li>
+        <li><a href="droit-biens.html#demenbrement">Les démembrements du droit de propriété</a></li>
+        <li><a href="droit-biens.html#publicite">La publicité foncière</a></li>
+        <li><a href="droit-biens.html#acquisition">Les modes d'acquisition de la propriété</a></li>
       </ul>
     </div>
-
   </div>
 </body>
 
