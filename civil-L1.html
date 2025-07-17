@@ -152,6 +152,34 @@
     body.dark-mode li a:hover {
       color: var(--accent-color);
     }
+
+    .search-bar {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+}
+
+body.dark-mode .search-input {
+  background-color: #1e1e1e;
+  color: white;
+  border-color: #ccc;
+}
+
   </style>
 </head>
 
@@ -160,6 +188,11 @@
   <button class="mode-switch" onclick="toggleMode()">🌙</button>
 
   <header>
+
+    <div class="search-bar">
+  <input type="text" id="searchInput" class="search-input" placeholder="🔎 Rechercher un thème ou un mot-clé...">
+</div>
+    
     <div class="btn-group-vertical">
       <a href="index.html" class="btn btn-outline-light btn-sm home-btn">🏠 Accueil</a>
       <a href="hub-L1.html" class="btn btn-outline-light btn-sm home-btn">🔁 Hub</a>
@@ -210,6 +243,29 @@
       btn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
     }
   </script>
+
+  <script>
+  const input = document.getElementById("searchInput");
+  input.addEventListener("keyup", function () {
+    const filter = input.value.toLowerCase();
+    const cards = document.querySelectorAll(".theme-card");
+
+    cards.forEach(card => {
+      const links = card.querySelectorAll("li");
+      let matchCount = 0;
+
+      links.forEach(li => {
+        const text = li.textContent.toLowerCase();
+        const visible = text.includes(filter);
+        li.style.display = visible ? "list-item" : "none";
+        if (visible) matchCount++;
+      });
+
+      card.style.display = matchCount > 0 ? "block" : "none";
+    });
+  });
+</script>
+
 </body>
 
 </html>
