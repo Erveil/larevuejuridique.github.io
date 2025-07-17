@@ -16,7 +16,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Times', sans-serif;
       background: url('tribunal.jpg') no-repeat center center fixed;
       background-size: cover;
       color: var(--primary-color);
@@ -33,24 +33,33 @@
       position: relative;
     }
 
-    .home-btn {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background-color: rgba(255, 255, 255, 0.2);
-      border: 1px solid white;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
+    .btn-group-vertical {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 999;
+}
 
-    .home-btn:hover {
-      background-color: white;
-      color: var(--primary-color);
-    }
+.home-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  color: white;
+  backdrop-filter: blur(4px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.home-btn:hover {
+  background-color: white;
+  color: #0f1a3b;
+  border-color: #ffffff;
+}
+
+
 
     h1 {
       font-family: 'Playfair Display', serif;
@@ -102,14 +111,17 @@
   </style>
 </head>
 
-<body>
+  <body>
   <header>
-   <a href="index.html" class="btn btn-outline-light btn-sm home-btn">🏠 Accueil</a>
-       </div>
-    <a href="hub-L1.html" class="btn btn-outline-light btn-sm home-btn"> 🔁 Hub</a>
+    <div class="btn-group-vertical">
+      <a href="index.html" class="btn btn-outline-light btn-sm home-btn">🏠 Accueil</a>
+      <a href="hub-L1.html" class="btn btn-outline-light btn-sm home-btn">🔁 Hub</a>
+    </div>
+
     <h1>Droit Civil – L1</h1>
     <p>Retrouve ici tous les thèmes clés du droit civil en première année</p>
   </header>
+
 
   <div class="theme-section">
     <div class="theme-card">
