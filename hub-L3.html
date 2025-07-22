@@ -109,6 +109,12 @@
 
 <div class="container container-glass">
 
+  <!-- Barre de recherche -->
+<div class="d-flex flex-wrap gap-3 search-bar mb-4 justify-content-center">
+  <input type="text" id="searchText" class="form-control" placeholder="🔍 Rechercher une matière..." style="max-width:300px">
+</div>
+
+
  <!-- (début du code identique à la version précédente) -->
 
 <!-- Droit privé -->
@@ -257,6 +263,23 @@
   function toggleMode() {
     document.body.classList.toggle("dark-mode");
   }
+</script>
+
+  <script>
+  function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+
+  // Recherche dans toutes les cartes
+  document.getElementById("searchText").addEventListener("input", function () {
+    const search = this.value.toLowerCase();
+    const subjects = document.querySelectorAll(".subject");
+
+    subjects.forEach(el => {
+      const match = el.textContent.toLowerCase().includes(search);
+      el.style.display = match ? "block" : "none";
+    });
+  });
 </script>
 
 </body>
