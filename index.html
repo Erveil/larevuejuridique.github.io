@@ -59,6 +59,36 @@
       cursor: pointer;
     }
 
+    .podcast-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* permet de passer à la ligne sur petit écran */
+  margin-top: 2rem;
+}
+
+.podcast-card {
+  width: 150px;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  background: white;
+  color: #0f1a3b;
+  text-decoration: none;
+}
+
+.podcast-card:hover {
+  transform: translateY(-5px);
+}
+
+.podcast-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+}
+
     nav a {
       color: white;
       text-decoration: none;
@@ -314,32 +344,28 @@
 
 </html>
 
-  <section id="podcast">
-    <h2>🎙️ Écouter le podcast</h2>
-
-     </div>
-      <div class="card">
-   <a href="https://open.spotify.com/episode/65JCvBfxmoQ7vzXm3RGrE8" target="_blank" class="card">
-  <img src="spotify.svg" alt="Podcast">
-  <h3>Spotify</h3>
-</a>
-      </div>
-      <div class="card">
-  <a href="https://www.deezer.com/fr/show/1001187931" target="_blank" class="card">
-  <img src="deezer.svg" alt="Podcast">
-  <h3>Deezer</h3>
-</a>
-        </div>
-      <div class="card">
-  <a href="https://podcasts.apple.com/fr/podcast/la-revue-juridique/id1769827870" target="_blank" class="card">
-  <img src="apple.svg" alt="Podcast">
-  <h3>Applepodcast</h3>
-</a>
+ <section id="podcast">
+  <h2>🎙️ Écouter le podcast</h2>
+  <div class="podcast-row">
     
-      </div>
-      <!-- Ajoute ici les autres cartes podcast si besoin -->
-    </div>
-  </section>
+    <a href="https://open.spotify.com/episode/65JCvBfxmoQ7vzXm3RGrE8" target="_blank" class="card podcast-card">
+      <img src="spotify.svg" alt="Podcast">
+      <h3>Spotify</h3>
+    </a>
+
+    <a href="https://www.deezer.com/fr/show/1001187931" target="_blank" class="card podcast-card">
+      <img src="deezer.svg" alt="Podcast">
+      <h3>Deezer</h3>
+    </a>
+
+    <a href="https://podcasts.apple.com/fr/podcast/la-revue-juridique/id1769827870" target="_blank" class="card podcast-card">
+      <img src="apple.svg" alt="Podcast">
+      <h3>Apple Podcast</h3>
+    </a>
+
+  </div>
+</section>
+
 
 <section id="private-warning" style="display: none; text-align: center; padding: 2rem; background: #ffe6e6; color: #990000;">
   🔒 Tu dois <strong>te connecter ou créer un compte (gratuitement)</strong> pour accéder au contenu !
