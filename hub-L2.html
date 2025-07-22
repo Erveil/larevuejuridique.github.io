@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Hub L2 – La Revue Juridique</title>
+  <title>Hub L1 – La Revue Juridique</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" type="image/png" href="Favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
       color: var(--text-dark);
       min-height: 100vh;
     }
-
+ 
     header, footer {
       background: var(--bg-dark);
       color: var(--text-light);
@@ -76,35 +76,36 @@
     }
 
     .home-btn {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 999;
-      background-color: rgba(255, 255, 255, 0.2);
-      border-color: white;
-      color: white;
-      backdrop-filter: blur(4px);
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  color: white;
+  backdrop-filter: blur(4px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
 
-    .home-btn:hover {
-      background-color: white;
-      color: #0f1a3b;
-      border-color: #ffffff;
-    }
+.home-btn:hover {
+  background-color: white;
+  color: #0f1a3b;
+  border-color: #ffffff;
+}
+
   </style>
 </head>
-
+ 
 <body>
+  
+ <a href="index.html" class="btn btn-outline-light btn-sm home-btn">🏠 Accueil</a>
 
-<a href="index.html" class="btn btn-outline-light btn-sm home-btn">🏠 Accueil</a>
-
-<button class="btn btn-sm btn-light mode-switch" onclick="toggleMode()">🌙</button>
-<header>
-  <h1>📚 La Revue Juridique – Hub L2</h1>
-  <p class="mb-0">Espace collaboratif L2</p>
-</header>
+  <button class="btn btn-sm btn-light mode-switch" onclick="toggleMode()">🌙</button>
+  <header>
+    <h1>📚 La Revue Juridique – Hub L2</h1>
+    <p class="mb-0">Espace collaboratif L2</p>
+  </header>
 
 <div class="container container-glass">
   <!-- Barre de Recherche -->
