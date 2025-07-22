@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hub L2 – La Revue Juridique</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/png" href="Favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <style>
+    :root {
+      --primary-color: #0f1a3b;
+      --bg-light: rgba(255,255,255,0.85);
+      --bg-dark: rgba(15,26,59,0.9);
+      --text-light: #ffffff;
+      --text-dark: #0f1a3b;
+    }
+    body {
+      font-family: 'Times', sans-serif;
+      background: url('tribunal.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    h1, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    .container-glass {
+      background: var(--bg-light);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .subject .card {
+      border: none;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .subject .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .subject img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .search-bar input, .search-bar select {
+      border-radius: 10px;
+    }
+    .mode-switch {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+    }
+    .dark-mode {
+      --bg-light: rgba(15,26,59,0.9);
+      --text-dark: #ffffff;
+      --bg-dark: rgba(0,0,0,0.8);
+    }
+
+    .home-btn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 999;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: white;
+      color: white;
+      backdrop-filter: blur(4px);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: white;
+      color: #0f1a3b;
+      border-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="index.html" class="btn btn-outline-light btn-sm home-btn">🏠 Accueil</a>
+
+<button class="btn btn-sm btn-light mode-switch" onclick="toggleMode()">🌙</button>
+<header>
+  <h1>📚 La Revue Juridique – Hub L2</h1>
+  <p class="mb-0">Espace collaboratif L2</p>
+</header>
+
+<div class="container container-glass">
+  <!-- Barre de Recherche -->
+  <div class="d-flex flex-wrap gap-3 search-bar mb-5 justify-content-center">
+    <input type="text" id="searchText" class="form-control" placeholder="🔍 Rechercher un document" style="max-width:250px">
+    <select id="subjectFilter" class="form-select" style="max-width:200px">
+      <option value="">Toutes les matières</option>
+      <option value="civil">Droit civil</option>
+      <option value="admin">Droit administratif</option>
+      <option value="penal">Droit pénal</option>
+      <option value="affaires">Droit des affaires</option>
+      <option value="anglais">Anglais juridique</option>
+      <option value="autres">Autres</option>
+    </select>
+    <select id="schoolFilter" class="form-select" style="max-width:200px">
+      <!-- Réutilise la même liste des universités ici -->
+      <option value="">Tous les ét
 
