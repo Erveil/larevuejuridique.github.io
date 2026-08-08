@@ -1,1 +1,1 @@
-# larevuejuridique.github.io
+# larevuejuridique.fr
